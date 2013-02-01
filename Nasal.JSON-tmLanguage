@@ -1,0 +1,91 @@
+{ "name": "Nasal",
+  "scopeName" : "source.nasal",
+  "fileTypes" : ["nas"],
+  "patterns"  : [
+    { "name"  : "comment.line.nasal",
+      "match" : "#.*$"
+    },
+    { "name"  : "string.quoted.double.nasal",
+      "begin" : "\"",
+      "end"   : "\""
+    },
+    { "name"  : "string.quoted.single.nasal",
+      "begin" : "'",
+      "end"   : "'"
+    },
+    { "name"  : "constant.numeric.nasal",
+      "match" : "((\\b[0-9]+)?\\.)?\\b[0-9]+([eE][-+]?[0-9]+)?\\b"
+    },
+    { "name"  : "keyword.control.nasal",
+      "match" : "\\b(if|elsif|else)\\b"
+    },
+    { "name"  : "keyword.control.nasal",
+      "match" : "\\b(while|for|foreach|forindex)\\b"
+    },
+    { "name"  : "keyword.control.nasal",
+      "match" : "\\b(break|continue)\\b"
+    },
+    { "name"  : "storage.type.nasal",
+      "match" : "\\b(func|return|var)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\b(me|arg|parents)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\b(size|keys|append|pop|setsize|subvec|delete|int|num|streq|substr)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\b(chr|typeof|compile|call|die|sprintf|caller|closure|find|cmp)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\b(split|rand|bind|sort|ghosttype|id|readline)\\b"
+    },
+    { "name"  : "keyword.other.flightgear",
+      "match" : "\\b(rand|print|fgcommand|setprop|getprop|settimer|interpolate)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\bmath.(sin|cos|exp|ln|sqrt|atan2|e|pi)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\bbits.(sfld|fld|setfld|buf)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\butf8.(chstr|strc|substr|size|validate)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\bio.(open|close|read|write|seek|tell|readln|stat)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\bthread.(newthread|newlock|lock|unlock|newsem|semdown|semup)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\bunix.(pipe|fork|dup2|exec|waitpid|opendir|readdir|closedir|time|chdir|environ)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\bregex.(comp|exec)\\b"
+    },
+    { "name"  : "keyword.other.nasal",
+      "match" : "\\bsqlite.(open|close|prepare|exec|finalize)\\b"
+    },
+    { "name"  : "constant.language.nasal",
+      "match" : "nil"
+    },
+    { "name"  : "keyword.operator.nasal",
+      "match" : "(\\b(and|or)\\b)|(\\+|-|%|#|\\*|\\/|==?|~|<=?|>=?|(?<!\\.)\\.{2}(?!\\.))"
+    },
+    { "name"  : "entity.name.function.nasal",
+      "match" : "(?<=var)(\\s*\\w+)"
+    },
+    { "name"  : "variable.complex.nasal",
+      "begin" : "(?<=func)\\s*\\(",
+        "patterns": [
+          { "include": "$self" },
+          { "name"   : "variable.parameter.nasal",
+            "match"  : "\\w"
+          }
+        ],
+      "end"   : "\\)"
+    }
+  ],
+  "uuid"      : "f33e3fd8-0d8b-4e8b-b19e-54f0f4739d5a"
+}
