@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>comment</key>
+	<string>Nasal Syntax: version 0.1</string>
 	<key>fileTypes</key>
 	<array>
 		<string>nas</string>
@@ -11,177 +13,591 @@
 	<key>patterns</key>
 	<array>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.class.nas</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.nas</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.nas</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.nas</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.begin.nas</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.nas</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.end.nas</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>match stuff like: Sound.play = func() { … }</string>
 			<key>match</key>
-			<string>#.*$</string>
+			<string>([a-zA-Z_?.$][\w?.$]*)\.([a-zA-Z_?.$][\w?.$]*)\s*(=)\s*(func)\s+(\()(.*?)(\))</string>
 			<key>name</key>
-			<string>comment.line.nasal</string>
+			<string>meta.function.nas</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>"</string>
-			<key>end</key>
-			<string>"</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.nas</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.nas</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.nas</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.begin.nas</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.nas</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.end.nas</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>match stuff like: play = func() { … }</string>
+			<key>match</key>
+			<string>([a-zA-Z_?$][\w?$]*)\s*(=)\s*(func)\s*(\()(.*?)(\))</string>
 			<key>name</key>
-			<string>string.quoted.double.nasal</string>
+			<string>meta.function.nas</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>'</string>
-			<key>end</key>
-			<string>'</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.nas</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.nas</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.nas</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.begin.nas</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.nas</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.end.nas</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>match stuff like: play = (func() { … }</string>
+			<key>match</key>
+			<string>([a-zA-Z_?$][\w?$]*)\s*(=)\s*\(\s*(func)\s*(\()(.*?)(\))</string>
 			<key>name</key>
-			<string>string.quoted.single.nasal</string>
+			<string>meta.function.nas</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.nas</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.nas</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.begin.nas</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.nas</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.end.nas</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>match regular function like: func myFunc(arg) { … }</string>
+			<key>match</key>
+			<string>\b\(\s*(func)\s+([a-zA-Z_$]\w*)?\s*(\()(.*?)(\))</string>
+			<key>name</key>
+			<string>meta.function.nas</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.nas</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.nas</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.begin.nas</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.nas</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.end.nas</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>match stuff like: foobar: func() { … }</string>
+			<key>match</key>
+			<string>\b([a-zA-Z_?.$][\w?.$]*)\s*:\s*\b(func)?\s*(\()(.*?)(\))</string>
+			<key>name</key>
+			<string>meta.function.nason.nas</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>string.quoted.single.nas</string>
+				</dict>
+				<key>10</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.begin.nas</string>
+				</dict>
+				<key>11</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.nas</string>
+				</dict>
+				<key>12</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.parameters.end.nas</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nas</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.nas</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nas</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>string.quoted.double.nas</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nas</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.nas</string>
+				</dict>
+				<key>8</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nas</string>
+				</dict>
+				<key>9</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.nas</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Attempt to match "foo": function</string>
+			<key>match</key>
+			<string>(?:((')([^']*)('))|((")([^"]*)(")))\s*:\s*\b(func)?\s*(\()([^)]*)(\))</string>
+			<key>name</key>
+			<string>meta.function.nason.nas</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.new.nas</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.instance.nas</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(new)\s+(\w+(?:\.\w*)?)</string>
+			<key>name</key>
+			<string>meta.class.instance.constructor</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>((\b[0-9]+)?\.)?\b[0-9]+([eE][-+]?[0-9]+)?\b</string>
 			<key>name</key>
-			<string>constant.numeric.nasal</string>
+			<string>constant.numeric.nas</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>0[x|X][0-9a-fA-F]+</string>
+			<key>name</key>
+			<string>constant.numeric.nas</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nas</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nas</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.single.nas</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)</string>
+					<key>name</key>
+					<string>constant.character.escape.nas</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nas</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nas</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.nas</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)</string>
+					<key>name</key>
+					<string>constant.character.escape.nas</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.comment.nas</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(#).*$\n?</string>
+			<key>name</key>
+			<string>comment.line.hash.nas</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(func|var)\b</string>
+			<key>name</key>
+			<string>storage.type.nas</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(const|export|extends|final|implements|native|private|protected|public|static|synchronized|throws|transient|volatile)\b</string>
+			<key>name</key>
+			<string>storage.modifier.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(if|elsif|else)\b</string>
 			<key>name</key>
-			<string>keyword.control.nasal</string>
+			<string>keyword.control.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(while|for|foreach|forindex)\b</string>
 			<key>name</key>
-			<string>keyword.control.nasal</string>
+			<string>keyword.control.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(break|continue)\b</string>
+			<string>\b(break(\s+[A-Z]{2,16})?(?=\s*(;|\}))|continue(\s+[A-Z]{2,16})?(?=\s*(;|\}))|([A-Z]{2,16})(?=\s*;([^\)#;]*?;){0,2}[^\)#;]*?\)))\b</string>
 			<key>name</key>
-			<string>keyword.control.nasal</string>
+			<string>keyword.control.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(func|return|var)\b</string>
 			<key>name</key>
-			<string>storage.type.nasal</string>
+			<string>storage.type.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(me|arg|parents)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(size|keys|append|pop|setsize|subvec|delete|int|num|streq|substr)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(chr|typeof|compile|call|die|sprintf|caller|closure|find|cmp)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(split|rand|bind|sort|ghosttype|id|readline)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\b(rand|print|fgcommand|setprop|getprop|settimer|interpolate)\b</string>
 			<key>name</key>
-			<string>keyword.other.flightgear</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\bmath.(sin|cos|exp|ln|sqrt|atan2|e|pi)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\bbits.(sfld|fld|setfld|buf)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\butf8.(chstr|strc|substr|size|validate)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\bio.(open|close|read|write|seek|tell|readln|stat)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\bthread.(newthread|newlock|lock|unlock|newsem|semdown|semup)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\bunix.(pipe|fork|dup2|exec|waitpid|opendir|readdir|closedir|time|chdir|environ)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\bregex.(comp|exec)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\bsqlite.(open|close|prepare|exec|finalize)\b</string>
 			<key>name</key>
-			<string>keyword.other.nasal</string>
+			<string>keyword.other.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>nil</string>
+			<string>\bnil\b</string>
 			<key>name</key>
-			<string>constant.language.nasal</string>
+			<string>constant.language.nil.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(\b(and|or)\b)|(\+|-|%|#|\*|\/|==?|~|&lt;=?|&gt;=?|(?&lt;!\.)\.{2}(?!\.))</string>
+			<string>\b(obj|me)\b</string>
 			<key>name</key>
-			<string>keyword.operator.nasal</string>
+			<string>variable.language.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=var)(\s*\w+)</string>
+			<string>!|\*|\-|\+|~|/|==|=|!=|&lt;=|&gt;=|&lt;|&gt;|!|\?|\:|\*=|/=|\+=|\-=|~=|\.\.\.|\b(and|or)\b</string>
 			<key>name</key>
-			<string>entity.name.function.nasal</string>
+			<string>keyword.operator.nas</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&lt;=func)\s*\(</string>
+			<string>(?&lt;=[=(:]|^|return|&amp;&amp;|\|\||!)\s*(/)(?![/*+{}?])</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.nas</string>
+				</dict>
+			</dict>
 			<key>end</key>
-			<string>\)</string>
+			<string>(/)[igm]*</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.nas</string>
+				</dict>
+			</dict>
 			<key>name</key>
-			<string>variable.complex.nasal</string>
+			<string>string.regexp.nas</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>$self</string>
-				</dict>
-				<dict>
 					<key>match</key>
-					<string>\w</string>
+					<string>\\.</string>
 					<key>name</key>
-					<string>variable.parameter.nasal</string>
+					<string>constant.character.escape.nas</string>
 				</dict>
 			</array>
 		</dict>
+		<dict>
+			<key>match</key>
+			<string>\;</string>
+			<key>name</key>
+			<string>punctuation.terminator.statement.nas</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>,[ |\t]*</string>
+			<key>name</key>
+			<string>meta.delimiter.object.comma.nas</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\.</string>
+			<key>name</key>
+			<string>meta.delimiter.method.period.nas</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\{|\}</string>
+			<key>name</key>
+			<string>meta.brace.curly.nas</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\(|\)</string>
+			<key>name</key>
+			<string>meta.brace.round.nas</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\[|\]</string>
+			<key>name</key>
+			<string>meta.brace.square.nas</string>
+		</dict>
 	</array>
 	<key>scopeName</key>
-	<string>source.nasal</string>
+	<string>source.nas</string>
 	<key>uuid</key>
 	<string>f33e3fd8-0d8b-4e8b-b19e-54f0f4739d5a</string>
 </dict>
