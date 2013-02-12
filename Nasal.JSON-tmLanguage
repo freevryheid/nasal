@@ -1,9 +1,21 @@
 {
-    "comment": "Nasal Syntax: version 0.1",
+    "comment": "Nasal syntax: version 0.2 - thanks Philosopher",
     "fileTypes": ["nas"],
     "name": "Nasal",
     "scopeName": "source.nas",
     "patterns": [
+        {
+            "name"  : "variable.complex.nasal",
+            "begin" : "(?<=func)\\s*\\(",
+            "patterns": [
+                { "include": "$self" },
+                {
+                    "name"   : "variable.parameter.nas",
+                    "match"  : "\\w"
+                }
+            ],
+            "end"   : "\\)"
+        },
         {
             "captures": {
                 "1": {
@@ -17,19 +29,10 @@
                 },
                 "4": {
                     "name": "storage.type.function.nas"
-                },
-                "5": {
-                    "name": "punctuation.definition.parameters.begin.nas"
-                },
-                "6": {
-                    "name": "variable.parameter.function.nas"
-                },
-                "7": {
-                    "name": "punctuation.definition.parameters.end.nas"
                 }
             },
             "comment": "match stuff like: Sound.play = func() { \u2026 }",
-            "match": "([a-zA-Z_?.$][\\w?.$]*)\\.([a-zA-Z_?.$][\\w?.$]*)\\s*(=)\\s*(func)\\s+(\\()(.*?)(\\))",
+            "match": "([a-zA-Z_?.$][\\w?.$]*)\\.([a-zA-Z_?.$][\\w?.$]*)\\s*(=)\\s*(func)",
             "name": "meta.function.nas"
         },
         {
@@ -42,19 +45,10 @@
                 },
                 "3": {
                     "name": "storage.type.function.nas"
-                },
-                "4": {
-                    "name": "punctuation.definition.parameters.begin.nas"
-                },
-                "5": {
-                    "name": "variable.parameter.function.nas"
-                },
-                "6": {
-                    "name": "punctuation.definition.parameters.end.nas"
                 }
             },
             "comment": "match stuff like: play = func() { \u2026 }",
-            "match": "([a-zA-Z_?$][\\w?$]*)\\s*(=)\\s*(func)\\s*(\\()(.*?)(\\))",
+            "match": "([a-zA-Z_?$][\\w?$]*)\\s*(=)\\s*(func)",
             "name": "meta.function.nas"
         },
         {
@@ -67,41 +61,10 @@
                 },
                 "3": {
                     "name": "storage.type.function.nas"
-                },
-                "4": {
-                    "name": "punctuation.definition.parameters.begin.nas"
-                },
-                "5": {
-                    "name": "variable.parameter.function.nas"
-                },
-                "6": {
-                    "name": "punctuation.definition.parameters.end.nas"
                 }
             },
             "comment": "match stuff like: play = (func() { \u2026 }",
-            "match": "([a-zA-Z_?$][\\w?$]*)\\s*(=)\\s*\\(\\s*(func)\\s*(\\()(.*?)(\\))",
-            "name": "meta.function.nas"
-        },
-        {
-            "captures": {
-                "1": {
-                    "name": "storage.type.function.nas"
-                },
-                "2": {
-                    "name": "entity.name.function.nas"
-                },
-                "3": {
-                    "name": "punctuation.definition.parameters.begin.nas"
-                },
-                "4": {
-                    "name": "variable.parameter.function.nas"
-                },
-                "5": {
-                    "name": "punctuation.definition.parameters.end.nas"
-                }
-            },
-            "comment": "match regular function like: func myFunc(arg) { \u2026 }",
-            "match": "\\b\\(\\s*(func)\\s+([a-zA-Z_$]\\w*)?\\s*(\\()(.*?)(\\))",
+            "match": "([a-zA-Z_?$][\\w?$]*)\\s*(=)\\s*\\(\\s*(func)",
             "name": "meta.function.nas"
         },
         {
@@ -111,63 +74,11 @@
                 },
                 "2": {
                     "name": "storage.type.function.nas"
-                },
-                "3": {
-                    "name": "punctuation.definition.parameters.begin.nas"
-                },
-                "4": {
-                    "name": "variable.parameter.function.nas"
-                },
-                "5": {
-                    "name": "punctuation.definition.parameters.end.nas"
                 }
             },
             "comment": "match stuff like: foobar: func() { \u2026 }",
-            "match": "\\b([a-zA-Z_?.$][\\w?.$]*)\\s*:\\s*\\b(func)?\\s*(\\()(.*?)(\\))",
-            "name": "meta.function.nason.nas"
-        },
-        {
-            "captures": {
-                "1": {
-                    "name": "string.quoted.single.nas"
-                },
-                "2": {
-                    "name": "punctuation.definition.string.begin.nas"
-                },
-                "3": {
-                    "name": "entity.name.function.nas"
-                },
-                "4": {
-                    "name": "punctuation.definition.string.end.nas"
-                },
-                "5": {
-                    "name": "string.quoted.double.nas"
-                },
-                "6": {
-                    "name": "punctuation.definition.string.begin.nas"
-                },
-                "7": {
-                    "name": "entity.name.function.nas"
-                },
-                "8": {
-                    "name": "punctuation.definition.string.end.nas"
-                },
-                "9": {
-                    "name": "entity.name.function.nas"
-                },
-                "10": {
-                    "name": "punctuation.definition.parameters.begin.nas"
-                },
-                "11": {
-                    "name": "variable.parameter.function.nas"
-                },
-                "12": {
-                    "name": "punctuation.definition.parameters.end.nas"
-                }
-            },
-            "comment": "Attempt to match \"foo\": function",
-            "match": "(?:((')([^']*)('))|((\")([^\"]*)(\")))\\s*:\\s*\\b(func)?\\s*(\\()([^)]*)(\\))",
-            "name": "meta.function.nason.nas"
+            "match": "\\b([a-zA-Z_?.$][\\w?.$]*)\\s*:\\s*\\b(func)",
+            "name": "meta.function.hash.nas"
         },
         {
             "captures": {
@@ -244,11 +155,6 @@
             "match": "\\b(func|var)\\b",
             "name": "storage.type.nas"
         },
-        {
-            "match": "\\b(const|export|extends|final|implements|native|private|protected|public|static|synchronized|throws|transient|volatile)\\b",
-            "name": "storage.modifier.nas"
-        },
-
         {
             "name"  : "keyword.control.nas",
             "match" : "\\b(if|elsif|else)\\b"

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>comment</key>
-	<string>Nasal Syntax: version 0.1</string>
+	<string>Nasal syntax: version 0.2 - thanks Philosopher</string>
 	<key>fileTypes</key>
 	<array>
 		<string>nas</string>
@@ -12,6 +12,27 @@
 	<string>Nasal</string>
 	<key>patterns</key>
 	<array>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;=func)\s*\(</string>
+			<key>end</key>
+			<string>\)</string>
+			<key>name</key>
+			<string>variable.complex.nasal</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>$self</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\w</string>
+					<key>name</key>
+					<string>variable.parameter.nas</string>
+				</dict>
+			</array>
+		</dict>
 		<dict>
 			<key>captures</key>
 			<dict>
@@ -35,26 +56,11 @@
 					<key>name</key>
 					<string>storage.type.function.nas</string>
 				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.begin.nas</string>
-				</dict>
-				<key>6</key>
-				<dict>
-					<key>name</key>
-					<string>variable.parameter.function.nas</string>
-				</dict>
-				<key>7</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.end.nas</string>
-				</dict>
 			</dict>
 			<key>comment</key>
 			<string>match stuff like: Sound.play = func() { … }</string>
 			<key>match</key>
-			<string>([a-zA-Z_?.$][\w?.$]*)\.([a-zA-Z_?.$][\w?.$]*)\s*(=)\s*(func)\s+(\()(.*?)(\))</string>
+			<string>([a-zA-Z_?.$][\w?.$]*)\.([a-zA-Z_?.$][\w?.$]*)\s*(=)\s*(func)</string>
 			<key>name</key>
 			<string>meta.function.nas</string>
 		</dict>
@@ -75,27 +81,12 @@
 				<dict>
 					<key>name</key>
 					<string>storage.type.function.nas</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.begin.nas</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>variable.parameter.function.nas</string>
-				</dict>
-				<key>6</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.end.nas</string>
 				</dict>
 			</dict>
 			<key>comment</key>
 			<string>match stuff like: play = func() { … }</string>
 			<key>match</key>
-			<string>([a-zA-Z_?$][\w?$]*)\s*(=)\s*(func)\s*(\()(.*?)(\))</string>
+			<string>([a-zA-Z_?$][\w?$]*)\s*(=)\s*(func)</string>
 			<key>name</key>
 			<string>meta.function.nas</string>
 		</dict>
@@ -117,62 +108,11 @@
 					<key>name</key>
 					<string>storage.type.function.nas</string>
 				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.begin.nas</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>variable.parameter.function.nas</string>
-				</dict>
-				<key>6</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.end.nas</string>
-				</dict>
 			</dict>
 			<key>comment</key>
 			<string>match stuff like: play = (func() { … }</string>
 			<key>match</key>
-			<string>([a-zA-Z_?$][\w?$]*)\s*(=)\s*\(\s*(func)\s*(\()(.*?)(\))</string>
-			<key>name</key>
-			<string>meta.function.nas</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>storage.type.function.nas</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.nas</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.begin.nas</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>variable.parameter.function.nas</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.end.nas</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>match regular function like: func myFunc(arg) { … }</string>
-			<key>match</key>
-			<string>\b\(\s*(func)\s+([a-zA-Z_$]\w*)?\s*(\()(.*?)(\))</string>
+			<string>([a-zA-Z_?$][\w?$]*)\s*(=)\s*\(\s*(func)</string>
 			<key>name</key>
 			<string>meta.function.nas</string>
 		</dict>
@@ -188,100 +128,14 @@
 				<dict>
 					<key>name</key>
 					<string>storage.type.function.nas</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.begin.nas</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>variable.parameter.function.nas</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.end.nas</string>
 				</dict>
 			</dict>
 			<key>comment</key>
 			<string>match stuff like: foobar: func() { … }</string>
 			<key>match</key>
-			<string>\b([a-zA-Z_?.$][\w?.$]*)\s*:\s*\b(func)?\s*(\()(.*?)(\))</string>
+			<string>\b([a-zA-Z_?.$][\w?.$]*)\s*:\s*\b(func)</string>
 			<key>name</key>
-			<string>meta.function.nason.nas</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>string.quoted.single.nas</string>
-				</dict>
-				<key>10</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.begin.nas</string>
-				</dict>
-				<key>11</key>
-				<dict>
-					<key>name</key>
-					<string>variable.parameter.function.nas</string>
-				</dict>
-				<key>12</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.parameters.end.nas</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.nas</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.nas</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.nas</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>string.quoted.double.nas</string>
-				</dict>
-				<key>6</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.begin.nas</string>
-				</dict>
-				<key>7</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.nas</string>
-				</dict>
-				<key>8</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.string.end.nas</string>
-				</dict>
-				<key>9</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function.nas</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>Attempt to match "foo": function</string>
-			<key>match</key>
-			<string>(?:((')([^']*)('))|((")([^"]*)(")))\s*:\s*\b(func)?\s*(\()([^)]*)(\))</string>
-			<key>name</key>
-			<string>meta.function.nason.nas</string>
+			<string>meta.function.hash.nas</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -399,12 +253,6 @@
 			<string>\b(func|var)\b</string>
 			<key>name</key>
 			<string>storage.type.nas</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(const|export|extends|final|implements|native|private|protected|public|static|synchronized|throws|transient|volatile)\b</string>
-			<key>name</key>
-			<string>storage.modifier.nas</string>
 		</dict>
 		<dict>
 			<key>match</key>
